@@ -1,5 +1,6 @@
 package com.events.superapp.modules.movies.entity;
 
+import com.events.superapp.common.entity.BaseEvent;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
@@ -11,8 +12,9 @@ import lombok.Setter;
 @PrimaryKeyJoinColumn(name = "event_id")
 @Getter
 @Setter
-public class Movie {
+public class Movie extends BaseEvent {
     private String director;
+    private String posterUrl;
     private Integer durationMinutes;
-    private String genre;
+    private String imdbRating;
 }

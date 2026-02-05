@@ -20,7 +20,7 @@ public class Showtime {
     private Movie movie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Theatre theater;
+    private Theater theater;
 
     private LocalDateTime startTime;
     private BigDecimal basePrice;

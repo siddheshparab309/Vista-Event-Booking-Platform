@@ -35,6 +35,9 @@ public class BaseEvent {
     @Column(columnDefinition = "jsonb")
     private Map<String, Object> metadata;
 
+    @Column(name = "genre")
+    private String genre;
+
     @Version
     private Integer version;
 }

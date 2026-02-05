@@ -1,5 +1,6 @@
 package com.events.superapp.modules.movies.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,5 +17,6 @@ public class Seat {
     private String seatRow;
     private String type;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Theatre theater;
+    @JsonBackReference
+    private Theater theater;
 }
