@@ -13,8 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Movie extends BaseEvent {
-    private String director;
     private String posterUrl;
-    private Integer durationMinutes;
     private String imdbRating;
 }

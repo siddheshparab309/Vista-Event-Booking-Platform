@@ -39,5 +39,8 @@ public class BaseEvent {
     private String genre;
 
     @Version
-    private Integer version;
+    private int version;
+
+    @Column(name = "isActive")
+    private boolean isActive = false;
 }

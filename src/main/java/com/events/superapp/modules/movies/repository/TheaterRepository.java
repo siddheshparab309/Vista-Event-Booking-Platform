@@ -1,11 +1,12 @@
 package com.events.superapp.modules.movies.repository;
 
-import com.events.superapp.modules.movies.entity.Movie;
+import com.events.superapp.modules.movies.entity.Theater;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, Long> {
-    Optional<Movie> findByTitle(String title);
+public interface TheaterRepository extends JpaRepository<Theater, Long> {
+    Optional<Theater> findByName(String name);
 }

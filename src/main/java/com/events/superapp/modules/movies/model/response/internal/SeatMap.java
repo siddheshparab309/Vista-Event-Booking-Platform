@@ -1,9 +1,8 @@
-package com.events.superapp.modules.movies.model.response;
+package com.events.superapp.modules.movies.model.response.internal;
 
 import java.util.List;
 
 public record SeatMap(
-        // Metadata to show at the top of the seat map screen
         Long showtimeId,
         String movieTitle,
         String theaterName,
