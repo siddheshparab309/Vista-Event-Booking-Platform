@@ -1,8 +1,16 @@
 package com.events.superapp.modules.movies.model.response.internal;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.util.List;
 
-public record Rows (
-        String rowLabel,
-        List<SeatInfo> seats
-){}
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class Rows {
+    private String rowLabel;
+    private List<SeatInfo> seats;
+}

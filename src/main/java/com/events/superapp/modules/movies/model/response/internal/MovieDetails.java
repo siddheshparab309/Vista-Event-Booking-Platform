@@ -10,7 +10,7 @@ import java.util.Map;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AllMovies {
+public class MovieDetails {
     public Long id;
     public String title;
     private String contentRating;

@@ -1,11 +1,16 @@
 package com.events.superapp.modules.movies.model.response.internal;
 
+import lombok.*;
 import java.util.List;
 
-public record TheaterSchedules(
-        Long theaterId,
-        String theaterName,
-        String address,
-        Double distanceKm,
-        List<ShowDetails> showTimes
-) {}
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class TheaterSchedules {
+    private Long theaterId;
+    private String theaterName;
+    private String address;
+    private List<ShowDetails> showTimes;
+}
