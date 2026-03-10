@@ -1,12 +1,11 @@
 package com.events.superapp.modules.ticketing.entity;
 
 import com.events.superapp.common.entity.User;
-import com.events.superapp.modules.movies.entity.Seat;
 import com.events.superapp.modules.movies.entity.Showtime;
+import com.events.superapp.modules.movies.entity.ShowtimeSeat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,8 +28,12 @@ public class Bookings {
     private Showtime showtime;
 
     @ManyToMany
-    @JoinTable(name = "booking_seats")
-    private List<Seat> seats;
+    @JoinTable(
+            name = "booking_showtime_seats",
+            joinColumns = @JoinColumn(name = "booking_id"),
+            inverseJoinColumns = @JoinColumn(name = "showtime_seat_id")
+    )
+    private List<ShowtimeSeat> showtimeSeats;
 
     private BigDecimal totalAmount;
     private LocalDateTime bookingTime;

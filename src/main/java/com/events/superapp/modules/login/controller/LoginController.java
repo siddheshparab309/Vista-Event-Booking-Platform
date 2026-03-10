@@ -3,6 +3,7 @@ package com.events.superapp.modules.login.controller;
 import com.events.superapp.common.entity.User;
 import com.events.superapp.common.model.SessionData;
 import com.events.superapp.common.repository.UserRepository;
+import com.events.superapp.modules.login.model.request.ProfileUpdateRequest;
 import com.events.superapp.modules.login.model.response.SSOLoginResponse;
 import com.events.superapp.modules.login.service.LoginService;
 import com.events.superapp.modules.login.service.SessionService;
@@ -76,6 +77,21 @@ public class LoginController {
             userRepository.save(user);
             return ResponseEntity.ok(Map.of("message", "City updated", "city", user.getPreferredCity()));
         }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/updateProfile")
+    public ResponseEntity<?> updateProfile(
+            @CookieValue(name = "session_key", required = false) String sessionKey,
+            @RequestBody ProfileUpdateRequest request) {
+        try {
+            var isUserUpdated = loginService.updateProfile(request);
+            return ResponseEntity.ok(Map.of(
+                    "isSuccess", isUserUpdated,
+                    "message", "Profile updated successfully"
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Update failed: " + e.getMessage());
+        }
     }
 
     private String createCookie(String key, long maxAge) {

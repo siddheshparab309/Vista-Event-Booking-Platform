@@ -26,7 +26,7 @@ public class User {
 
     private String ssoId;
 
-    private String phoneNumber;
+    private String mobileNo;
 
     private String preferredCity;
 

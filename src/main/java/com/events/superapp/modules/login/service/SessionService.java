@@ -17,7 +17,7 @@ public class SessionService {
 
     public String createSession(User user) {
         String sessionKey = UUID.randomUUID().toString();
-        SessionData data = new SessionData(user.getEmail(), user.getPhoneNumber(), user.getName());
+        SessionData data = new SessionData(user.getEmail(), user.getMobileNo(), user.getName());
         redisTemplate.opsForValue().set(sessionKey, data, SESSION_EXPIRY, TimeUnit.SECONDS);
         return sessionKey;
     }

@@ -11,10 +11,8 @@ public record BookingRequest(
         Long showtimeId,
         @NotEmpty
         List<String> selectedSeatIds,
-        @NotNull
-        Integer version,
         @NotBlank
-        String fullName,
+        String email,
         @NotBlank
         String mobileNumber,
         String paymentToken
